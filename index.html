@@ -240,9 +240,7 @@ h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:cent
     <div class="headerInner">
       <div class="topRow">
         <div style="min-width:260px">
-          <h1>🎉 Calendário de Aniversários — Colegim <span class="badge">mensagens bíblicas</span></h1>
-          <div class="sub">Toque no dia para abrir o modal com mensagem + copiar + WhatsApp.</div>
-        </div>
+          <h1>🎉 Calendário de Aniversários — Colegim </h1> </div>
         <div class="controls">
           <button class="btn" type="button" id="prevBtn">◀ Anterior</button>
           <button class="btn" type="button" id="nextBtn">Próximo ▶</button>
@@ -279,7 +277,7 @@ h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:cent
   <section class="card">
     <div class="cardInner">
       <div class="h2">⏭️ Próximos aniversários</div>
-      <p class="note" style="margin-bottom:10px;">Veja quem faz aniversário em breve (7 / 15 / 30 dias).</p>
+      <p class="note" style="margin-bottom:10px;">Veja quem faz aniversário em breve.</p>
 <div style="margin:10px 0 6px;">
   <div class="h2">🔎 Resultado da busca</div>
   <p class="note" style="margin:0 0 8px;">Mostra as pessoas encontradas e abre o dia ao tocar.</p>
@@ -287,12 +285,7 @@ h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:cent
   <div class="small" id="searchEmpty" style="display:none; margin-top:8px;">Nenhum nome encontrado.</div>
 </div>
 
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-        <button class="btn" type="button" id="up7Btn">7 dias</button>
-        <button class="btn" type="button" id="up15Btn">15 dias</button>
-        <button class="btn primary" type="button" id="up30Btn">30 dias</button>
-        <span class="pill" id="upCountPill">—</span>
-      </div>
+      <span class="pill" id="upCountPill">—</span>
 
       <ul class="list" id="upcomingList" style="margin-top:0;"></ul>
       <div class="small" id="upcomingEmpty" style="display:none; margin-top:8px;">
@@ -439,9 +432,6 @@ const monthSummaryEl = document.getElementById("monthSummary");
 const monthListEl = document.getElementById("monthList");
 
 
-const up7Btn = document.getElementById("up7Btn");
-const up15Btn = document.getElementById("up15Btn");
-const up30Btn = document.getElementById("up30Btn");
 const upCountPillEl = document.getElementById("upCountPill");
 const upcomingListEl = document.getElementById("upcomingList");
 const upcomingEmptyEl = document.getElementById("upcomingEmpty");
@@ -769,21 +759,11 @@ function renderUpcoming(){
   }
 }
 
-function setUpcomingWindow(days){
-  upcomingWindow = days;
-  up7Btn.classList.remove("primary");
-  up15Btn.classList.remove("primary");
-  up30Btn.classList.remove("primary");
-  if (days === 7) up7Btn.classList.add("primary");
-  if (days === 15) up15Btn.classList.add("primary");
-  if (days === 30) up30Btn.classList.add("primary");
-  renderUpcoming();
-  applyCalendarMatches(normalizeText(searchInput.value));
-}
 
-up7Btn.addEventListener("click", ()=> setUpcomingWindow(7));
-up15Btn.addEventListener("click", ()=> setUpcomingWindow(15));
-up30Btn.addEventListener("click", ()=> setUpcomingWindow(30));
+
+
+
+
 
 const prevBtn  = document.getElementById("prevBtn");
 const nextBtn  = document.getElementById("nextBtn");
@@ -1081,7 +1061,7 @@ nextBtn.addEventListener("click", ()=>{ viewMonth++; if (viewMonth>11){ viewMont
 todayBtn.addEventListener("click", ()=>{ now = new Date(); viewMonth = now.getMonth(); viewYear = now.getFullYear(); render(); showToast("Hoje"); });
 
 render();
-setUpcomingWindow(30);
+
 renderSearchResults('');
 </script>
 </body>
