@@ -1,272 +1,1088 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📱 iPhones Pronta Entrega - BH</title>
-    <meta property="og:image" content="https://files.gaiacity.ai/e71b2d07-28d0-4054-9988-51820b134d10">
-    <meta property="og:title" content="📱 iPhones Disponíveis - Pronta Entrega BH">
-    <meta property="og:description" content="Confira nossa lista de iPhones em pronta entrega, com garantia e envio para todo o Brasil!">
-    <meta property="og:url" content="https://charlibriano.github.io/lista-iphones/">
-    <meta property="og:type" content="website">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário de Aniversários — Colegim</title>
+<meta name="theme-color" content="#f3f6ff">
+<style>
+:root{
+  --bg:#f3f6ff;
+  --bg2:#eef2ff;
+  --card:#ffffff;
+  --soft:#f7f9ff;
+  --text:#141c33;
+  --muted:#5b6a9a;
+  --accent:#4f5bff;
+  --accent2:#16a34a;
+  --line:rgba(0,0,0,.08);
+  --shadow:0 14px 34px rgba(14,28,80,.10);
+  --shadow2:0 10px 22px rgba(14,28,80,.10);
+  --r:18px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  overflow-x:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 520px at 10% 0%, rgba(79,91,255,.18), rgba(0,0,0,0) 60%),
+    radial-gradient(900px 520px at 90% 10%, rgba(22,163,74,.12), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+.container{max-width:1100px; margin:0 auto; padding:18px 14px 120px;}
 
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f2f5;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #007aff;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        .info-header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 10px;
-            border-bottom: 2px solid #ccc;
-        }
-        .info-header p {
-            margin: 5px 0;
-            font-weight: bold;
-        }
-        .produto {
-            border: 1px solid #eee;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        .produto h2 {
-            font-size: 1.2em;
-            color: #555;
-            margin-top: 0;
-        }
-        .preco {
-            font-weight: bold;
-            color: #ff3b30; /* Cor de destaque para o preço */
-            font-size: 1.3em;
-            margin-top: 5px;
-            display: block;
-        }
-        .esgotado {
-            color: #777;
-            font-weight: bold;
-            font-size: 1.3em;
-            margin-top: 5px;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 10px;
-        }
-        ul li {
-            margin-bottom: 5px;
-            line-height: 1.4;
-        }
-        .separator {
-            border-bottom: 1px dashed #ddd;
-            margin: 15px 0;
-        }
-        /* Estilos do Botão WhatsApp */
-        .whatsapp-button {
-            display: block;
-            width: 90%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 15px 10px;
-            background-color: #25d366; /* Cor Verde WhatsApp */
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
-        }
-        .whatsapp-button:hover {
-            background-color: #128c7e;
-        }
-    </style>
+.header{
+  border:1px solid var(--line);
+  border-radius: calc(var(--r) + 6px);
+  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.78));
+  overflow:hidden;
+}
+.headerInner{padding:16px 16px 12px;}
+.topRow{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.sub{margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.45;}
+.badge{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background: rgba(79,91,255,.08); color: rgba(20,28,51,.95);}
+
+.controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;}
+.btn{
+  -webkit-appearance:none; appearance:none;
+  border:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,249,255,.92));
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  box-shadow: var(--shadow2);
+  transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+  font-size:13px;
+}
+.btn:hover{transform: translateY(-1px); border-color: rgba(0,0,0,.14);}
+.btn:active{transform: translateY(0px);}
+.btn.primary{border-color: rgba(79,91,255,.22); background: linear-gradient(180deg, rgba(79,91,255,.14), rgba(79,91,255,.08));}
+.btn:focus{outline: 2px solid rgba(79,91,255,.40); outline-offset:2px;}
+
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; color:var(--muted);
+  border:1px solid var(--line);
+  padding:9px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,.70);
+}
+
+.layout{margin-top:14px; display:grid; grid-template-columns: 1.25fr .75fr; gap:14px;}
+@media (max-width: 960px){ .layout{grid-template-columns:1fr;} }
+
+.card{
+  border:1px solid var(--line);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.86);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.cardInner{padding:14px;}
+
+.monthbar{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px;}
+.monthTitle{font-weight:900; font-size:16px; letter-spacing:.2px;}
+
+.weekdays, .days{display:grid; grid-template-columns:repeat(7,1fr); gap:8px;}
+.weekdays div{text-align:center; font-size:12px; color:var(--muted); padding:4px 0;}
+
+.day{
+  background: linear-gradient(180deg, rgba(247,249,255,.92), rgba(255,255,255,.92));
+  border-radius: 14px;
+  padding:10px;
+  min-height:64px;
+  cursor:pointer;
+  border:1px solid rgba(0,0,0,.07);
+  position:relative;
+  transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+}
+.day:hover{ border-color: rgba(0,0,0,.12); transform: translateY(-1px); }
+.day.muted{ opacity:.35; cursor:default; transform:none !important; }
+.day.selected{ box-shadow: 0 0 0 2px rgba(79,91,255,.18) inset; border-color: rgba(79,91,255,.28);}
+.day.today{ border:2px solid rgba(79,91,255,.60); }
+.day.bday{ border:2px solid rgba(22,163,74,.55); background: linear-gradient(180deg, rgba(236,253,245,.95), rgba(255,255,255,.92)); }
+.day.bday:before{ content:""; position:absolute; right:-18px; top:-18px; width:60px;height:60px;
+  background: radial-gradient(circle at 30% 30%, rgba(22,163,74,.32), rgba(22,163,74,0) 62%);
+  transform: rotate(18deg); pointer-events:none;
+}
+.day .n{ font-size:14px; font-weight:900; display:flex; align-items:center; gap:6px; }
+.miniBadge{ font-size:11px; padding:3px 7px; border-radius:999px; border:1px solid rgba(0,0,0,.08); background: rgba(22,163,74,.10); color: rgba(20,28,51,.90);}
+.day .p{ margin-top:8px; font-size:11px; color:var(--muted); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+
+.h2{margin:0 0 10px; font-size:14px; letter-spacing:.2px;}
+.note{margin:0; color:var(--muted); font-size:13px; line-height:1.4;}
+.list{margin:10px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px;}
+.li{
+  border:1px solid rgba(0,0,0,.08);
+  background: rgba(247,249,255,.90);
+  border-radius: 14px;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+.li strong{font-size:13px}
+.li span{font-size:12px; color:var(--muted); white-space:nowrap}
+.small{font-size:12px; color:var(--muted);}
+
+.floatToday{position:fixed; right:14px; bottom:14px; z-index:50;}
+.toast{position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: rgba(255,255,255,.96);
+  border:1px solid var(--line); color: rgba(20,28,51,.96); padding:10px 12px; border-radius: 999px;
+  box-shadow: var(--shadow2); opacity:0; pointer-events:none; transition: opacity .16s ease, transform .16s ease; z-index: 10000; font-size: 13px;
+}
+.toast.show{ opacity:1; transform: translateX(-50%) translateY(-4px);}
+
+.modalOverlay{
+  position:fixed; inset:0; display:none; z-index:9999;
+  background: rgba(8,12,24,.40);
+  padding: 14px;
+}
+.modalOverlay.show{display:flex; align-items:flex-end; justify-content:center;}
+.modal{
+  width:min(760px, 100%);
+  max-height: 82vh;
+  overflow:auto;
+  border-radius: 20px;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.96);
+  box-shadow: var(--shadow);
+}
+.modalHeader{
+  position:sticky; top:0;
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding: 12px 12px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.96);
+}
+.modalHeader .t{font-weight:950; font-size:16px; letter-spacing:.2px;}
+.iconBtn{
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(247,249,255,.92);
+  color: rgba(20,28,51,.96);
+  border-radius: 999px;
+  padding: 8px 10px;
+  cursor:pointer;
+}
+.modalBody{ padding: 12px; }
+.item{
+  background: rgba(247,249,255,.92);
+  border-radius: 16px;
+  padding:12px;
+  margin-bottom:10px;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 18px rgba(14,28,80,.08);
+}
+.itemTop{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start;}
+.itemTop strong{font-size:15px;}
+.dateTag{font-size:12px; color: var(--muted); border:1px solid rgba(0,0,0,.10); padding:6px 10px; border-radius:999px; background: rgba(255,255,255,.80);}
+.msg{font-size:12.5px; margin-top:10px; color: #065f46; line-height:1.35; border:1px solid rgba(22,163,74,.20);
+  background: linear-gradient(90deg, rgba(22,163,74,.10), rgba(79,91,255,.10));
+  border-radius: 14px; padding:10px 12px;
+}
+.actions{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;}
+.smallBtn{border:1px solid rgba(0,0,0,.10); background: rgba(255,255,255,.92); color: rgba(20,28,51,.96); padding:8px 10px; border-radius: 999px; cursor:pointer; font-size:12px;}
+.smallBtn:hover{border-color: rgba(0,0,0,.16);}
+
+#confetti{ position:fixed; inset:0; pointer-events:none; z-index:9998; }
+
+@media (max-width: 720px){
+  .container{ padding:14px 10px 110px; }
+  h1{ font-size:18px; }
+  .controls{ justify-content:flex-start; }
+  .day{ min-height:52px; padding:8px; border-radius:12px; }
+  .day .p{ display:none; }
+}
+
+.li.clickable{ cursor:pointer; }
+.li.clickable:hover{ border-color: rgba(79,91,255,.25); box-shadow: 0 0 0 2px rgba(79,91,255,.10) inset; }
+
+
+/* search */
+.searchRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:10px;}
+.searchWrap{flex:1; min-width:220px; position:relative;}
+.searchInput{
+  width:100%;
+  padding:11px 44px 11px 14px;
+  border-radius: 999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.92);
+  color: var(--text);
+  box-shadow: var(--shadow2);
+  font-size:13px;
+}
+.searchInput:focus{outline:2px solid rgba(79,91,255,.35); outline-offset:2px;}
+.clearBtn{
+  position:absolute; right:10px; top:50%; transform:translateY(-50%);
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(247,249,255,.92);
+  border-radius:999px;
+  padding:6px 8px;
+  cursor:pointer;
+  font-size:12px;
+}
+.searchMeta{font-size:12px; color: var(--muted);}
+.day.match{
+  border-color: rgba(79,91,255,.40) !important;
+  box-shadow: 0 0 0 2px rgba(79,91,255,.10) inset, 0 10px 18px rgba(14,28,80,.08);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .day, .btn, .toast{ transition:none !important; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>📱 iPhones Disponíveis (Lista Atualizada)</h1>
+<canvas id="confetti"></canvas>
 
-        <div class="info-header">
-            <p>📍 Pronta entrega em **Belo Horizonte**</p>
-            <p>🇺🇸 **Produtos americanos**</p>
+<div class="container">
+  <section class="header">
+    <div class="headerInner">
+      <div class="topRow">
+        <div style="min-width:260px">
+          <h1>🎉 Calendário de Aniversários — Colegim <span class="badge">mensagens bíblicas</span></h1>
+          <div class="sub">Toque no dia para abrir o modal com mensagem + copiar + WhatsApp.</div>
         </div>
-        
-        <a class="whatsapp-button" 
-           href="https://api.whatsapp.com/send?phone=5531992727195&text=Ol%C3%A1%2C%20vi%20a%20lista%20de%20iPhones%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20compra."
-           target="_blank">
-           💬 QUERO COMPRAR AGORA!
-        </a>
-        
-        <div class="produto">
-            <h2>🦍 16 Pro Max – 256GB</h2>
-            <span class="preco">R$ 6.700,00 🔥</span>
-            <ul>
-                <li>🎨 Desert / Black</li>
-                <li>🔋 Bateria 100% | Garantia Apple 2026</li>
-            </ul>
+        <div class="controls">
+          <button class="btn" type="button" id="prevBtn">◀ Anterior</button>
+          <button class="btn" type="button" id="nextBtn">Próximo ▶</button>
+          <button class="btn primary" type="button" id="icsBtn">📆 Adicionar ao calendário</button>
+          <span class="pill" id="countPill">—</span>
         </div>
-        <div class="separator"></div>
-        
-        <div class="produto">
-            <h2>🦍 16 – 128 GB</h2>
-            <span class="esgotado">Esgotado 🔥</span>
-            <ul>
-                <li>🎨 Ultramarino</li>
-                <li>🔋 Bateria 100% | 🇺🇸 Anatel</li>
-                <li>Garantia Apple 11 meses</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 15 Pro Max – 256 GB</h2>
-            <span class="esgotado">Esgotado 🔥</span>
-            <ul>
-                <li>🎨 Black</li>
-                <li>🔋 Bateria 92% | 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 15 Pro – 128 GB</h2>
-            <span class="preco">R$ 4.400,00 🔥</span>
-            <ul>
-                <li>🎨 Natural</li>
-                <li>🔋 Bateria 87% + 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 15 – 128 GB</h2>
-            <span class="esgotado">Esgotado 🔥</span>
-            <ul>
-                <li>🎨 Black / Azul</li>
-                <li>🔋 Bateria 87% + 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 14 Pro – 128 GB</h2>
-            <span class="preco">R$ 3.590,00</span>
-            <ul>
-                <li>🎨 Roxo / Black</li>
-                <li>🔋 Bateria 85% + | 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 14 Pro Max – 128GB</h2>
-            <span class="preco">R$ 4.150,00</span>
-            <ul>
-                <li>🎨 Roxo / Black</li>
-                <li>🔋 Bateria 89% | 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 13 – 128GB</h2>
-            <span class="preco">R$ 2.390,00</span>
-            <ul>
-                <li>• Black</li>
-                <li>• Pink</li>
-                <li>• Branco</li>
-                <li>• Azul</li>
-                <li>🔋 Bateria 83% + 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 13 – 256 GB</h2>
-            <span class="preco">R$ 2.490,00</span>
-            <ul>
-                <li>• Azul / Rosa / Preto</li>
-                <li>🔋 Bateria 83% + | 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 13 Pro Max – 128 GB</h2>
-            <span class="esgotado">Esgotado</span>
-            <ul>
-                <li>🎨 Verde</li>
-                <li>🔋 Bateria 88% | 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 14 – 128GB</h2>
-            <span class="preco">R$ 2.650,00 🔥</span>
-            <ul>
-                <li>🎨 Roxo / Preto / Azul / Branco</li>
-                <li>🔋 Bateria 83%+ 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 12 - 128 Gb</h2>
-            <span class="preco">R$ 1.750,00</span>
-            <ul>
-                <li>🎨 Black</li>
-                <li>Grade B 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-
-        <div class="produto">
-            <h2>🦍 12 – 64 Gb</h2>
-            <span class="preco">R$ 1.600,00</span>
-            <ul>
-                <li>• Preto / Branco / Verde</li>
-                <li>🔋 Bateria 89% | 🇺🇸</li>
-            </ul>
-        </div>
-        <div class="separator"></div>
-        
-        <h2>✅ INFORMAÇÕES EXTRAS:</h2>
-        <ul>
-            <li>• 100% testados ✅</li>
-            <li>• **Garantia de 30 dias** 📄</li>
-            <li>• Sem pedido mínimo 🚫</li>
-            <li>• Retirada em mão com segurança</li>
-            <li>• **Envio para todo o Brasil** 🇧🇷</li>
-        </ul>
-
-        <a class="whatsapp-button" 
-           href="https://api.whatsapp.com/send?phone=5531992727195&text=Ol%C3%A1%2C%20vi%20a%20lista%20de%20iPhones%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20compra."
-           target="_blank">
-           💬 GARANTIR O MEU AGORA!
-        </a>
-
+<div class="searchRow" style="width:100%">
+  <div class="searchWrap">
+    <input class="searchInput" id="searchInput" type="text" inputmode="search" autocomplete="off" placeholder="🔎 Pesquisar por nome (ex: Cin, Fel, Tati)">
+    <button class="clearBtn" type="button" id="clearSearchBtn" title="Limpar">✖</button>
+  </div>
+  <span class="pill" id="searchPill">Digite para buscar</span>
+</div>
+      </div>
     </div>
+  </section>
+
+  <div class="layout">
+    <section class="card">
+      <div class="cardInner">
+        <div class="monthbar">
+          <div class="monthTitle" id="monthTitle">—</div>
+          <span class="pill">🟩 Aniversário · 🟦 Hoje</span>
+        </div>
+
+        <div class="weekdays">
+          <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+        </div>
+        <div class="days" id="days"></div>
+      </div>
+    </section>
+
+    <aside style="display:flex; flex-direction:column; gap:14px;">
+  <section class="card">
+    <div class="cardInner">
+      <div class="h2">⏭️ Próximos aniversários</div>
+      <p class="note" style="margin-bottom:10px;">Veja quem faz aniversário em breve (7 / 15 / 30 dias).</p>
+<div style="margin:10px 0 6px;">
+  <div class="h2">🔎 Resultado da busca</div>
+  <p class="note" style="margin:0 0 8px;">Mostra as pessoas encontradas e abre o dia ao tocar.</p>
+  <ul class="list" id="searchList" style="margin-top:0;"></ul>
+  <div class="small" id="searchEmpty" style="display:none; margin-top:8px;">Nenhum nome encontrado.</div>
+</div>
+
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+        <button class="btn" type="button" id="up7Btn">7 dias</button>
+        <button class="btn" type="button" id="up15Btn">15 dias</button>
+        <button class="btn primary" type="button" id="up30Btn">30 dias</button>
+        <span class="pill" id="upCountPill">—</span>
+      </div>
+
+      <ul class="list" id="upcomingList" style="margin-top:0;"></ul>
+      <div class="small" id="upcomingEmpty" style="display:none; margin-top:8px;">
+        Nenhum aniversário nos próximos dias escolhidos.
+      </div>
+      <div class="small" style="margin-top:10px;">Dica: toque em um nome para ir direto no dia (abre o modal).</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="cardInner">
+      <div class="h2">📌 Observações do mês</div>
+        <p class="note" id="monthSummary">—</p>
+        <ul class="list" id="monthList"></ul>
+        <p class="small" style="margin-top:10px">Dica: clique no dia do calendário para abrir as mensagens.</p>
+    </div>
+  </section>
+</aside>
+</div>
+</div>
+
+<div class="floatToday">
+  <button class="btn primary" type="button" id="todayBtn">📍 Hoje</button>
+</div>
+
+<div class="toast" id="toast">Copiado ✅</div>
+
+<div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modalHeader">
+      <div class="t" id="modalTitle">—</div>
+      <button class="iconBtn" type="button" id="closeModalBtn">Fechar ✖</button>
+    </div>
+    <div class="modalBody" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const birthdays = {
+  "02-15": [
+    "Cintia Cordeiro",
+    "Felipe"
+  ],
+  "06-15": [
+    "Cintia Silva"
+  ],
+  "04-12": [
+    "Clayton"
+  ],
+  "02-18": [
+    "Dayane"
+  ],
+  "12-06": [
+    "Fernanda"
+  ],
+  "05-09": [
+    "Gau"
+  ],
+  "11-03": [
+    "Jorge"
+  ],
+  "03-04": [
+    "Luiz (curanda)"
+  ],
+  "02-11": [
+    "Pedro (Nagai)"
+  ],
+  "01-09": [
+    "PT"
+  ],
+  "01-22": [
+    "Regio"
+  ],
+  "04-22": [
+    "Tati"
+  ]
+};
+const messages  = {
+  "Cintia Cordeiro": "🎉📖 Cintia, feliz aniversário! Que o Senhor te abençoe e te guarde; e te conceda paz. (Números 6:24-26)",
+  "Felipe": "🙏📖 Felipe, feliz aniversário! Entregue seus caminhos ao Senhor; Ele cuidará de você. (Salmo 37:5)",
+  "Cintia Silva": "✨📖 Cintia, feliz aniversário! Confie no Senhor de todo o coração; Ele endireitará seus passos. (Provérbios 3:5-6)",
+  "Clayton": "🎂📖 Clayton, feliz aniversário! Deus tem planos de paz e um futuro cheio de esperança para você. (Jeremias 29:11)",
+  "Dayane": "🎉📖 Dayane, feliz aniversário! Não temas: Deus te fortalece, ajuda e sustenta. (Isaías 41:10)",
+  "Fernanda": "🙏📖 Fernanda, feliz aniversário! Que a paz de Deus guarde seu coração e seus pensamentos. (Filipenses 4:6-7)",
+  "Gau": "✨📖 Gau, feliz aniversário! O Senhor é seu Pastor; nada te faltará. (Salmo 23:1)",
+  "Jorge": "🎂📖 Jorge, feliz aniversário! Que Deus te encha de alegria e paz, transbordando em esperança. (Romanos 15:13)",
+  "Luiz (curanda)": "🎉📖 Luiz, feliz aniversário! Que o Senhor te guarde em todo tempo, na saída e na chegada. (Salmo 121:7-8)",
+  "Pedro (Nagai)": "🙏📖 Pedro, feliz aniversário! Que Deus faça além do que você pede ou imagina. (Efésios 3:20)",
+  "PT": "✨📖 PT, feliz aniversário! Que Deus te conceda sabedoria para cada decisão. (Tiago 1:5)",
+  "Regio": "🎂📖 Regio, feliz aniversário! Que suas forças sejam renovadas e você siga com ânimo. (Isaías 40:31)",
+  "Tati": "🎉📖 Tati, feliz aniversário! Que a paz de Jesus seja sua porção em todo momento. (João 14:27)"
+};
+const defaultMsg = "🎉📖 Feliz aniversário! Que Deus abençoe sua vida com saúde, paz e alegria. (Números 6:24-26)";
+
+// mensagens extras automáticas (não repetem por pessoa)
+const extraPool = [
+  "Que seu novo ciclo seja cheio da presença de Deus e de novas conquistas.",
+  "Que Deus te conduza com paz, sabedoria e alegria neste novo ano de vida.",
+  "Que o Senhor fortaleça seus passos e cumpra Suas promessas sobre você.",
+  "Que este novo tempo seja marcado por crescimento, fé e direção divina.",
+  "Que a graça de Deus te envolva e te leve a viver coisas extraordinárias.",
+  "Que você experimente novos níveis de alegria, propósito e favor.",
+  "Que o Senhor renove suas forças e te surpreenda em cada detalhe.",
+  "Que sua caminhada seja guiada pela luz e pelo amor de Deus.",
+  "Que este novo ciclo seja repleto de bênçãos e realizações.",
+  "Que Deus abra portas e estabeleça Seus planos sobre sua vida.",
+  "Que você viva um ano de plenitude, paz e grandes vitórias.",
+  "Que o Senhor te sustente e te leve além do que você imagina.",
+  "Que sua fé seja fortalecida e seu coração cheio de esperança.",
+  "Que Deus te conceda um tempo de crescimento e colheita abundante.",
+  "Que este seja um ano de testemunhos e milagres.",
+  "Que a alegria do Senhor seja sua força todos os dias.",
+  "Que você viva os sonhos que Deus preparou para você.",
+  "Que a presença de Deus seja constante em cada novo passo.",
+  "Que este ciclo seja marcado por favor e graça sem medida.",
+  "Que Deus te surpreenda com coisas maiores e melhores."
+];
+
+const extraAssigned = {};
+function getExtraMessage(name){
+  if (extraAssigned[name]) return extraAssigned[name];
+  // deterministic pick based on name hash (prevents repetition per person)
+  let hash = 0;
+  for (let i=0;i<name.length;i++) hash = (hash<<5) - hash + name.charCodeAt(i);
+  hash = Math.abs(hash);
+  const msg = extraPool[hash % extraPool.length];
+  extraAssigned[name] = msg;
+  return msg;
+}
+
+const months=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+const daysEl = document.getElementById("days");
+const monthTitleEl = document.getElementById("monthTitle");
+const countPillEl  = document.getElementById("countPill");
+const toastEl      = document.getElementById("toast");
+const monthSummaryEl = document.getElementById("monthSummary");
+const monthListEl = document.getElementById("monthList");
+
+
+const up7Btn = document.getElementById("up7Btn");
+const up15Btn = document.getElementById("up15Btn");
+const up30Btn = document.getElementById("up30Btn");
+const upCountPillEl = document.getElementById("upCountPill");
+const upcomingListEl = document.getElementById("upcomingList");
+const upcomingEmptyEl = document.getElementById("upcomingEmpty");
+
+const searchInput = document.getElementById("searchInput");
+const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+const icsBtn = document.getElementById("icsBtn");
+
+function escapeICS(text){
+  return (text || "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,");
+}
+function yyyymmdd(dateObj){
+  const y = dateObj.getFullYear();
+  const m = String(dateObj.getMonth()+1).padStart(2,"0");
+  const d = String(dateObj.getDate()).padStart(2,"0");
+  return "" + y + m + d;
+}
+function pad2n(n){ return String(n).padStart(2,"0"); }
+
+function buildICS(){
+  const now = new Date();
+  const year = now.getFullYear();
+  const dtstamp = yyyymmdd(now) + "T" +
+    pad2n(now.getHours()) + pad2n(now.getMinutes()) + pad2n(now.getSeconds()) + "Z";
+
+  // Use one all-day recurring event per person (YEARLY), starting this year
+  let lines = [];
+  lines.push("BEGIN:VCALENDAR");
+  lines.push("VERSION:2.0");
+  lines.push("PRODID:-//Colegim//Calendario de Aniversarios//PT-BR");
+  lines.push("CALSCALE:GREGORIAN");
+  lines.push("METHOD:PUBLISH");
+
+  Object.keys(birthdays).sort().forEach((key)=>{
+    const parts = key.split("-");
+    const mm = parseInt(parts[0],10);
+    const dd = parseInt(parts[1],10);
+    const start = new Date(year, mm-1, dd);
+
+    (birthdays[key] || []).forEach((name)=>{
+      const uid = "colegim-" + escapeICS(normalizeText(name)) + "-" + parts[0] + parts[1] + "@local";
+      const summary = "Aniversário - " + name;
+      const desc = getExtraMessage(name) + "\n\n" + (messages[name] || defaultMsg);
+
+      lines.push("BEGIN:VEVENT");
+      lines.push("UID:" + uid);
+      lines.push("DTSTAMP:" + dtstamp);
+      lines.push("SUMMARY:" + escapeICS(summary));
+      lines.push("DESCRIPTION:" + escapeICS(desc));
+      lines.push("DTSTART;VALUE=DATE:" + yyyymmdd(start));
+      lines.push("RRULE:FREQ=YEARLY");
+      lines.push("TRANSP:TRANSPARENT");
+      lines.push("END:VEVENT");
+    });
+  });
+
+  lines.push("END:VCALENDAR");
+  return lines.join("\r\n");
+}
+
+function downloadICS(){
+  const ics = buildICS();
+  const filename = "aniversarios-colegim.ics";
+
+  // Prefer Blob download
+  try{
+    const blob = new Blob([ics], {type: "text/calendar;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=> URL.revokeObjectURL(url), 800);
+    showToast("Arquivo .ics gerado ✅");
+  }catch(err){
+    // Fallback: open data URL
+    const dataUrl = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+    window.open(dataUrl, "_blank");
+    showToast("Abrindo .ics…");
+  }
+}
+
+icsBtn.addEventListener("click", downloadICS);
+
+const searchPillEl = document.getElementById("searchPill");
+const searchListEl = document.getElementById("searchList");
+const searchEmptyEl = document.getElementById("searchEmpty");
+
+function normalizeText(s){
+  return (s || "")
+    .toString()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function buildNameIndex(){
+  const idx = [];
+  Object.keys(birthdays).forEach((key)=>{
+    (birthdays[key] || []).forEach((name)=>{
+      idx.push({ name, n: normalizeText(name), key });
+    });
+  });
+  // stable sort
+  idx.sort((a,b)=> a.name.localeCompare(b.name));
+  return idx;
+}
+const nameIndex = buildNameIndex();
+
+function keyToDateThisOrNext(key){
+  const base = toLocalMidnight(new Date());
+  const parts = parseMMDD(key);
+  let dt = new Date(base.getFullYear(), parts.mm - 1, parts.dd);
+  if (dt < base) dt = new Date(base.getFullYear()+1, parts.mm - 1, parts.dd);
+  return dt;
+}
+
+function clearCalendarMatches(){
+  const cells = document.querySelectorAll(".day.match");
+  for (let i=0;i<cells.length;i++) cells[i].classList.remove("match");
+}
+
+function applyCalendarMatches(queryNorm){
+  clearCalendarMatches();
+  if (!queryNorm) return;
+
+  // Determine which keys match
+  const matchKeys = {};
+  for (let i=0;i<nameIndex.length;i++){
+    const it = nameIndex[i];
+    if (it.n.indexOf(queryNorm) !== -1){
+      matchKeys[it.key] = true;
+    }
+  }
+  const mm = pad2(viewMonth+1);
+  // mark only in current view month for clarity
+  const keysInMonth = Object.keys(matchKeys).filter(k => k.indexOf(mm+"-") === 0);
+  if (!keysInMonth.length) return;
+
+  const cells = Array.prototype.slice.call(document.querySelectorAll(".day"));
+  for (let c=0;c<cells.length;c++){
+    const cell = cells[c];
+    if (cell.classList.contains("muted")) continue;
+    const nEl = cell.querySelector(".n");
+    if (!nEl) continue;
+    const dayNum = parseInt((nEl.textContent || "").trim(), 10);
+    if (!dayNum) continue;
+    const key = mm + "-" + pad2(dayNum);
+    if (matchKeys[key]) cell.classList.add("match");
+  }
+}
+
+function renderSearchResults(q){
+  const qn = normalizeText(q);
+  searchListEl.innerHTML = "";
+  searchEmptyEl.style.display = "none";
+
+  if (!qn){
+    searchPillEl.textContent = "Digite para buscar";
+    clearCalendarMatches();
+    return;
+  }
+
+  const results = [];
+  for (let i=0;i<nameIndex.length;i++){
+    const it = nameIndex[i];
+    if (it.n.indexOf(qn) !== -1){
+      const dt = keyToDateThisOrNext(it.key);
+      results.push({ name: it.name, key: it.key, dt, diff: daysBetween(toLocalMidnight(new Date()), dt) });
+    }
+  }
+  results.sort((a,b)=> a.dt - b.dt || a.name.localeCompare(b.name));
+
+  searchPillEl.textContent = results.length ? ("Encontrado: " + results.length) : "Nenhum encontrado";
+  if (!results.length){
+    searchEmptyEl.style.display = "block";
+    clearCalendarMatches();
+    return;
+  }
+
+  // highlight matches in the current view month
+  applyCalendarMatches(qn);
+
+  const maxShow = 18;
+  const show = results.slice(0, maxShow);
+  for (let i=0;i<show.length;i++){
+    const e = show[i];
+    const li = document.createElement("li");
+    li.className = "li clickable";
+    const when = e.diff === 0 ? "hoje" : (e.diff === 1 ? "em 1 dia" : ("em " + e.diff + " dias"));
+    li.innerHTML = `<strong>${e.name}</strong><span>${formatDDMM(e.dt)} · ${when}</span>`;
+    li.addEventListener("click", ()=>{
+      viewMonth = e.dt.getMonth();
+      viewYear = e.dt.getFullYear();
+      render();
+
+      const cells = Array.prototype.slice.call(document.querySelectorAll(".day"));
+      const target = cells.find((c)=>{
+        const n = c.querySelector(".n");
+        if(!n) return false;
+        const num = parseInt((n.textContent || "").trim(), 10);
+        return num === e.dt.getDate();
+      });
+      if (target){
+        setSelectedCell(target);
+        renderDayContent(e.key, e.dt.getDate());
+        openModal();
+        target.scrollIntoView({behavior:"smooth", block:"center"});
+      }
+    });
+    searchListEl.appendChild(li);
+  }
+
+  if (results.length > maxShow){
+    const more = document.createElement("div");
+    more.className = "small";
+    more.style.marginTop = "8px";
+    more.textContent = "Mostrando os 18 primeiros. Refine sua busca para ver mais.";
+    searchListEl.appendChild(more);
+  }
+}
+
+// debounce
+let _searchT = null;
+function onSearchChanged(){
+  clearTimeout(_searchT);
+  _searchT = setTimeout(()=> renderSearchResults(searchInput.value), 120);
+}
+searchInput.addEventListener("input", onSearchChanged);
+clearSearchBtn.addEventListener("click", ()=>{
+  searchInput.value = "";
+  renderSearchResults("");
+  searchInput.focus();
+});
+let upcomingWindow = 30; // default
+
+function toLocalMidnight(d){
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+}
+function daysBetween(a,b){
+  const ms = 24*60*60*1000;
+  return Math.round((toLocalMidnight(b) - toLocalMidnight(a))/ms);
+}
+function parseMMDD(key){
+  const parts = key.split("-");
+  return {mm: parseInt(parts[0],10), dd: parseInt(parts[1],10)};
+}
+
+function getUpcomingEvents(windowDays){
+  const base = toLocalMidnight(new Date());
+  const events = [];
+  Object.keys(birthdays).forEach((key)=>{
+    const parts = parseMMDD(key);
+    // candidate in this year
+    let dt = new Date(base.getFullYear(), parts.mm - 1, parts.dd);
+    if (dt < base) dt = new Date(base.getFullYear()+1, parts.mm - 1, parts.dd);
+    const diff = daysBetween(base, dt);
+    if (diff >= 0 && diff <= windowDays){
+      (birthdays[key] || []).forEach((name)=>{
+        events.push({name, key, dt, diff});
+      });
+    }
+  });
+  events.sort((a,b)=> a.dt - b.dt || a.name.localeCompare(b.name));
+  return events;
+}
+
+function formatDDMM(dt){
+  const dd = String(dt.getDate()).padStart(2,"0");
+  const mm = String(dt.getMonth()+1).padStart(2,"0");
+  return dd + "/" + mm;
+}
+
+function renderUpcoming(){
+  const ev = getUpcomingEvents(upcomingWindow);
+  upcomingListEl.innerHTML = "";
+  upcomingEmptyEl.style.display = ev.length ? "none" : "block";
+  upCountPillEl.textContent = "📌 " + ev.length + " pessoa(s)";
+
+  ev.slice(0, 18).forEach((e)=>{
+    const li = document.createElement("li");
+    li.className = "li clickable";
+    const when = e.diff === 0 ? "hoje" : (e.diff === 1 ? "em 1 dia" : ("em " + e.diff + " dias"));
+    li.innerHTML = `<strong>${e.name}</strong><span>${formatDDMM(e.dt)} · ${when}</span>`;
+    li.addEventListener("click", ()=>{
+      // navigate calendar to the event month/year and open modal on that day
+      viewMonth = e.dt.getMonth();
+      viewYear = e.dt.getFullYear();
+      render();
+
+      // find the day cell matching date
+      const cells = Array.prototype.slice.call(document.querySelectorAll(".day"));
+      const target = cells.find((c)=>{
+        const n = c.querySelector(".n");
+        if(!n) return false;
+        const dayText = (n.textContent || "").trim();
+        const num = parseInt(dayText, 10);
+        return num === e.dt.getDate();
+      });
+
+      if (target){
+        setSelectedCell(target);
+        renderDayContent(e.key, e.dt.getDate());
+        openModal();
+        target.scrollIntoView({behavior:"smooth", block:"center"});
+      }
+    });
+    upcomingListEl.appendChild(li);
+  });
+
+  if (ev.length > 18){
+    const more = document.createElement("div");
+    more.className = "small";
+    more.style.marginTop = "8px";
+    more.textContent = "Mostrando os 18 primeiros. Aumente o período ou navegue pelo calendário para ver todos.";
+    upcomingListEl.appendChild(more);
+  }
+}
+
+function setUpcomingWindow(days){
+  upcomingWindow = days;
+  up7Btn.classList.remove("primary");
+  up15Btn.classList.remove("primary");
+  up30Btn.classList.remove("primary");
+  if (days === 7) up7Btn.classList.add("primary");
+  if (days === 15) up15Btn.classList.add("primary");
+  if (days === 30) up30Btn.classList.add("primary");
+  renderUpcoming();
+  applyCalendarMatches(normalizeText(searchInput.value));
+}
+
+up7Btn.addEventListener("click", ()=> setUpcomingWindow(7));
+up15Btn.addEventListener("click", ()=> setUpcomingWindow(15));
+up30Btn.addEventListener("click", ()=> setUpcomingWindow(30));
+
+const prevBtn  = document.getElementById("prevBtn");
+const nextBtn  = document.getElementById("nextBtn");
+const todayBtn = document.getElementById("todayBtn");
+
+const modalOverlay = document.getElementById("modalOverlay");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const modalTitle = document.getElementById("modalTitle");
+const modalBody  = document.getElementById("modalBody");
+
+let now = new Date();
+let viewMonth = now.getMonth();
+let viewYear = now.getFullYear();
+let selectedCell = null;
+
+function pad2(n){ return String(n).padStart(2,"0"); }
+
+function showToast(text){
+  toastEl.textContent = text;
+  toastEl.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=>toastEl.classList.remove("show"), 1400);
+}
+
+function setSelectedCell(cell){
+  if (selectedCell) selectedCell.classList.remove("selected");
+  selectedCell = cell;
+  if (selectedCell) selectedCell.classList.add("selected");
+}
+
+function openModal(){
+  modalOverlay.classList.add("show");
+  modalOverlay.setAttribute("aria-hidden","false");
+  document.body.style.overflowX = "hidden";
+  document.body.style.overflowY = "hidden";
+}
+function closeModal(){
+  modalOverlay.classList.remove("show");
+  modalOverlay.setAttribute("aria-hidden","true");
+  document.body.style.overflowX = "hidden";
+  document.body.style.overflowY = "auto";
+}
+closeModalBtn.addEventListener("click", closeModal);
+modalOverlay.addEventListener("click", (e)=>{ if (e.target === modalOverlay) closeModal(); });
+document.addEventListener("keydown", (e)=>{ if (e.key === "Escape" && modalOverlay.classList.contains("show")) closeModal(); });
+
+/* confetti */
+const c = document.getElementById("confetti");
+const ctx = c.getContext("2d");
+let conf = [];
+function resizeCanvas(){ c.width = window.innerWidth; c.height = window.innerHeight; }
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+function launchConfetti(){
+  const isMobile = window.matchMedia("(max-width: 720px)").matches;
+  const count = isMobile ? 34 : 70;
+  const colors = ["rgba(22,163,74,.90)","rgba(79,91,255,.90)","rgba(251,113,133,.90)","rgba(20,28,51,.80)"];
+  const cx = Math.random()*c.width*0.6 + c.width*0.2;
+  const cy = 20;
+  for (let i=0;i<count;i++){
+    conf.push({
+      x: cx, y: cy,
+      vx: (Math.random()-0.5)*6,
+      vy: Math.random()*-5 - 2.5,
+      g: 0.18 + Math.random()*0.08,
+      s: 2 + Math.random()*3,
+      r: Math.random()*Math.PI,
+      vr: (Math.random()-0.5)*0.25,
+      life: 70 + Math.random()*30,
+      col: colors[Math.floor(Math.random()*colors.length)]
+    });
+  }
+}
+function tickConfetti(){
+  ctx.clearRect(0,0,c.width,c.height);
+  for (let i=conf.length-1;i>=0;i--){
+    const p = conf[i];
+    p.life -= 1;
+    p.vy += p.g;
+    p.x += p.vx;
+    p.y += p.vy;
+    p.r += p.vr;
+    ctx.save();
+    ctx.translate(p.x,p.y);
+    ctx.rotate(p.r);
+    ctx.fillStyle = p.col;
+    ctx.fillRect(-p.s/2,-p.s/2,p.s*1.3,p.s);
+    ctx.restore();
+    if (p.life<=0 || p.y>c.height+40) conf.splice(i,1);
+  }
+  requestAnimationFrame(tickConfetti);
+}
+tickConfetti();
+
+function countInMonth(m){
+  const mm = pad2(m+1);
+  let daysCount = 0, peopleCount = 0;
+  Object.keys(birthdays).forEach(k=>{
+    if(k.indexOf(mm + "-") === 0){
+      daysCount++;
+      peopleCount += birthdays[k].length;
+    }
+  });
+  return {daysCount, peopleCount};
+}
+
+function getMonthObservations(m){
+  const mm = pad2(m+1);
+  const items = [];
+  Object.keys(birthdays).sort().forEach(k=>{
+    if(k.indexOf(mm + "-") === 0){
+      const dd = k.split("-")[1];
+      items.push({dd, names: birthdays[k].slice()});
+    }
+  });
+  return items;
+}
+
+function renderMonthObservations(){
+  const c = countInMonth(viewMonth);
+  monthSummaryEl.textContent = c.daysCount
+    ? `Neste mês há ${c.peopleCount} aniversariante(s) distribuídos em ${c.daysCount} dia(s).`
+    : `Sem aniversários cadastrados para este mês.`;
+
+  monthListEl.innerHTML = "";
+  const obs = getMonthObservations(viewMonth);
+  if(!obs.length) return;
+
+  obs.forEach(o=>{
+    const li = document.createElement("li");
+    li.className = "li";
+    li.innerHTML = `<strong>${o.names.join(", ")}</strong><span>${o.dd}/${pad2(viewMonth+1)}</span>`;
+    monthListEl.appendChild(li);
+  });
+}
+
+function renderDayContent(key, day){
+  modalBody.innerHTML = "";
+  modalTitle.textContent = day + " de " + months[viewMonth];
+
+  const people = birthdays[key];
+  if (!people){
+    const div = document.createElement("div");
+    div.className = "item";
+    div.textContent = "Sem aniversariantes neste dia.";
+    modalBody.appendChild(div);
+    return;
+  }
+
+  launchConfetti();
+
+  const parts = key.split("-");
+  const mm = parts[0], dd = parts[1];
+
+  people.forEach((name)=>{
+    const extra = getExtraMessage(name);
+    const msg = extra + "\n\n" + (messages[name] || defaultMsg);
+    const wrap = document.createElement("div");
+    wrap.className = "item";
+
+    const msgEnc = encodeURIComponent(msg);
+    const waText = encodeURIComponent("*"+name+"* - "+dd+"/"+mm+"\n"+msg);
+
+    wrap.innerHTML =
+      "<div class='itemTop'><strong>"+name+"</strong><span class='dateTag'>"+dd+"/"+mm+"</span></div>" +
+      "<div class='msg'>"+(msg||'').replace(/\n/g,'<br>')+"</div>" +
+      "<div class='actions'>" +
+        "<button class='smallBtn' type='button' data-copy='"+msgEnc+"'>📋 Copiar</button>" +
+        "<button class='smallBtn' type='button' data-wa='"+waText+"'>🟢 WhatsApp</button>" +
+      "</div>";
+    modalBody.appendChild(wrap);
+  });
+}
+
+function render(){
+  monthTitleEl.textContent = "📅 " + months[viewMonth] + " " + viewYear;
+  const c = countInMonth(viewMonth);
+  countPillEl.textContent = "🎂 " + c.peopleCount + " pessoa(s) · " + c.daysCount + " dia(s)";
+
+  daysEl.innerHTML = "";
+  selectedCell = null;
+
+  renderMonthObservations();
+
+  const firstDow = new Date(viewYear, viewMonth, 1).getDay();
+  const total = new Date(viewYear, viewMonth+1, 0).getDate();
+
+  for (let i=0; i<firstDow; i++){
+    const div = document.createElement("div");
+    div.className = "day muted";
+    daysEl.appendChild(div);
+  }
+
+  for (let d=1; d<=total; d++){
+    const key = pad2(viewMonth+1) + "-" + pad2(d);
+    const has = !!birthdays[key];
+
+    const div = document.createElement("div");
+    let cls = "day";
+    if (has) cls += " bday";
+    if (d === now.getDate() && viewMonth === now.getMonth() && viewYear === now.getFullYear()) cls += " today";
+    div.className = cls;
+
+    let preview = "";
+    if (has){
+      const arr = birthdays[key];
+      preview = arr.slice(0,2).join(", ");
+      if (arr.length>2) preview += "…";
+    }
+
+    const badge = has ? " <span class='miniBadge'>🎉</span>" : "";
+    div.innerHTML = "<div class='n'>" + d + badge + "</div>" + (has ? "<div class='p'>" + preview + "</div>" : "");
+
+    div.addEventListener("click", ()=>{
+      setSelectedCell(div);
+      renderDayContent(key, d);
+      openModal();
+    });
+
+    daysEl.appendChild(div);
+  }
+  renderUpcoming();
+
+}
+
+/* copy + whatsapp */
+document.addEventListener("click", async (e)=>{
+  const btn = e.target.closest("button");
+  if (!btn) return;
+
+  if (btn.dataset.copy){
+    const msg = decodeURIComponent(btn.dataset.copy);
+    try{
+      await navigator.clipboard.writeText(msg);
+      showToast("Mensagem copiada ✅");
+    }catch(err){
+      const ta = document.createElement("textarea");
+      ta.value = msg;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      showToast("Copiado ✅");
+    }
+  }
+  
+  if (btn.dataset.wa){
+    const text = decodeURIComponent(btn.dataset.wa);
+    const url = "https://wa.me/?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
+  }
+  if (btn.dataset.share){
+    const text = decodeURIComponent(btn.dataset.share);
+    const title = "Mensagem de aniversário";
+    // Web Share API (mobile)
+    if (navigator.share){
+      try{
+        await navigator.share({ title, text });
+        showToast("Compartilhado ✅");
+      }catch(err){
+        // user cancelled or share failed — fall back to copy silently
+        try{
+          await navigator.clipboard.writeText(text);
+          showToast("Copiado ✅");
+        }catch(e2){
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+          showToast("Copiado ✅");
+        }
+      }
+    }else{
+      // Fallback: copy
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("Copiado ✅ (sem menu de compartilhar)");
+      }catch(err){
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast("Copiado ✅ (sem menu de compartilhar)");
+      }
+    }
+  }
+});
+prevBtn.addEventListener("click", ()=>{ viewMonth--; if (viewMonth<0){ viewMonth=11; viewYear--; } render(); });
+nextBtn.addEventListener("click", ()=>{ viewMonth++; if (viewMonth>11){ viewMonth=0; viewYear++; } render(); });
+todayBtn.addEventListener("click", ()=>{ now = new Date(); viewMonth = now.getMonth(); viewYear = now.getFullYear(); render(); showToast("Hoje"); });
+
+render();
+setUpcomingWindow(30);
+renderSearchResults('');
+</script>
 </body>
 </html>
