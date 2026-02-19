@@ -93,25 +93,22 @@ h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:cent
 .weekdays div{text-align:center; font-size:12px; color:var(--muted); padding:4px 0;}
 
 .day{
-  background: linear-gradient(180deg, rgba(247,249,255,.92), rgba(255,255,255,.92));
-  border-radius: 14px;
-  padding:10px;
-  min-height:64px;
-  cursor:pointer;
+  background: linear-gradient(180deg, rgba(247,249,255,.92), rgba(255,255,255,.92)); border-radius: 14px; padding:10px; min-height:64px; cursor:pointer;
   border:1px solid rgba(0,0,0,.07);
   position:relative;
   transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
 }
 .day:hover{ border-color: rgba(0,0,0,.12); transform: translateY(-1px); }
 .day.muted{ opacity:.35; cursor:default; transform:none !important; }
-.day.selected{ box-shadow: 0 0 0 2px rgba(79,91,255,.18) inset; border-color: rgba(79,91,255,.28);}
-.day.today{ border:2px solid rgba(79,91,255,.60); }
-.day.bday{ border:2px solid rgba(22,163,74,.55); background: linear-gradient(180deg, rgba(236,253,245,.95), rgba(255,255,255,.92)); }
+.day.selected{ box-shadow: 0 0 0 2px rgba(79,91,255,.20) inset, 0 10px 18px rgba(14,28,80,.06); border-color: rgba(79,91,255,.22); }
+.day.today{ box-shadow: 0 0 0 2px rgba(79,91,255,.50) inset, 0 10px 18px rgba(14,28,80,.06); }
+.day.bday{ background: linear-gradient(180deg, rgba(236,253,245,.95), rgba(255,255,255,.92)); box-shadow: 0 0 0 2px rgba(22,163,74,.45) inset; }
 .day.bday:before{ content:""; position:absolute; right:-18px; top:-18px; width:60px;height:60px;
   background: radial-gradient(circle at 30% 30%, rgba(22,163,74,.32), rgba(22,163,74,0) 62%);
   transform: rotate(18deg); pointer-events:none;
 }
-.day .n{ font-size:14px; font-weight:900; display:flex; align-items:center; gap:6px; }
+.day .n{ font-size:14px; font-weight:900; display:flex; align-items:center; gap:6px;  white-space:nowrap;}
+
 .miniBadge{ font-size:11px; padding:3px 7px; border-radius:999px; border:1px solid rgba(0,0,0,.08); background: rgba(22,163,74,.10); color: rgba(20,28,51,.90);}
 .day .p{ margin-top:8px; font-size:11px; color:var(--muted); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
 
@@ -228,10 +225,7 @@ h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:cent
   font-size:12px;
 }
 .searchMeta{font-size:12px; color: var(--muted);}
-.day.match{
-  border-color: rgba(79,91,255,.40) !important;
-  box-shadow: 0 0 0 2px rgba(79,91,255,.10) inset, 0 10px 18px rgba(14,28,80,.08);
-}
+.day.match{ border-color: rgba(79,91,255,.28) !important; box-shadow: 0 0 0 2px rgba(79,91,255,.14) inset, 0 10px 18px rgba(14,28,80,.06); }
 
 @media (prefers-reduced-motion: reduce){
   .day, .btn, .toast{ transition:none !important; }
@@ -351,6 +345,9 @@ const birthdays = {
   "02-18": [
     "Dayane"
   ],
+  "11-26": [
+    "Fanin"
+  ],
   "12-06": [
     "Fernanda"
   ],
@@ -362,6 +359,9 @@ const birthdays = {
   ],
   "03-04": [
     "Luiz (curanda)"
+  ],
+  "08-24": [
+    "Nair"
   ],
   "02-11": [
     "Pedro (Nagai)"
