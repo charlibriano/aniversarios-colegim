@@ -278,6 +278,10 @@ h1{margin:0; font-size:20px; letter-spacing:.2px; display:flex; align-items:cent
     <div class="cardInner">
       <div class="h2">⏭️ Próximos aniversários</div>
       <p class="note" style="margin-bottom:10px;">Veja quem faz aniversário em breve.</p>
+<div id="nextHighlight" style="margin:10px 0 12px; padding:10px 12px; border-radius:10px; background:linear-gradient(135deg,#eef2ff,#f8fafc); border:1px solid rgba(79,91,255,.15); font-size:14px;">
+  ⏭️ Próximo: <strong id="nextHighlightName">—</strong>
+  <span id="nextHighlightWhen" style="color:#475569;"></span>
+</div>
 <div style="margin:10px 0 6px;">
   <div class="h2">🔎 Resultado da busca</div>
   <p class="note" style="margin:0 0 8px;">Mostra as pessoas encontradas e abre o dia ao tocar.</p>
@@ -715,11 +719,29 @@ function formatDDMM(dt){
 
 function renderUpcoming(){
   const ev = getUpcomingEvents(upcomingWindow);
-  upcomingListEl.innerHTML = "";
+  
+  const nextHighlight = document.getElementById("nextHighlight");
+  const nextHighlightName = document.getElementById("nextHighlightName");
+  const nextHighlightWhen = document.getElementById("nextHighlightWhen");
+upcomingListEl.innerHTML = "";
   upcomingEmptyEl.style.display = ev.length ? "none" : "block";
   upCountPillEl.textContent = "📌 " + ev.length + " pessoa(s)";
 
-  ev.slice(0, 18).forEach((e)=>{
+  
+  // highlight the next person
+  if (ev.length){
+    const first = ev[0];
+    const when = first.diff === 0 ? "hoje"
+      : (first.diff === 1 ? "em 1 dia"
+      : ("em " + first.diff + " dias"));
+    nextHighlightName.textContent = first.name;
+    nextHighlightWhen.textContent = " — " + when;
+    nextHighlight.style.display = "block";
+  } else {
+    nextHighlight.style.display = "none";
+  }
+
+ev.slice(0, 18).forEach((e)=>{
     const li = document.createElement("li");
     li.className = "li clickable";
     const when = e.diff === 0 ? "hoje" : (e.diff === 1 ? "em 1 dia" : ("em " + e.diff + " dias"));
